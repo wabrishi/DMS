@@ -1,0 +1,129 @@
+@server=http://localhost:4004
+@username=alice
+@password=
+
+
+### Folder
+# @name Folder_GET
+GET {{server}}/odata/v4/dms/Folder
+Authorization: Basic {{username}} {{password}}
+
+
+### Folder
+# @name Folder_POST
+POST {{server}}/odata/v4/dms/Folder
+Content-Type: application/json
+Authorization: Basic {{username}} {{password}}
+
+{
+  "Name": "Aman",
+  "ParentFolder": {
+    "FolderUUID": "b6d0136f-29de-47cf-be4f-ce804b7bed8e"
+  },
+  "Path": "/root/LocalDisk D/Resume"
+}
+
+
+### Folder
+# @name Folder_PATCH
+PATCH {{server}}/odata/v4/dms/Folder/30771798-c9f4-4d08-bc4d-45c9f33dd522
+Content-Type: application/json
+Authorization: Basic {{username}} {{password}}
+
+{
+  "FolderUUID": "30771798-c9f4-4d08-bc4d-45c9f33dd522",
+  "Name": "Name-30771798",
+  "ParentFolder": {
+    "FolderUUID": "30771798-c9f4-4d08-bc4d-45c9f33dd522"
+  },
+  "Path": "Path-30771798",
+  "CreatedAt": "2010-02-12T00:00:00.000Z",
+  "CreatedBy": "CreatedBy-30771798",
+  "AllFiles": [
+    {
+      "FileUUID": "19853841-988c-4004-9a0e-40e5eff3b343",
+      "FileName": "FileName-19853841",
+      "SystemFileName": "SystemFileName-19853841",
+      "FileType": "FileType-19853841",
+      "FileSize": 44,
+      "FileURL": "FileURL-19853841",
+      "UploadedAt": "2010-04-14T00:00:00.000Z",
+      "UploadedBy": "UploadedBy-19853841",
+      "FolderPath": "FolderPath-19853841"
+    },
+    {
+      "FileUUID": "19853842-4e1b-4197-9452-1393a4e7d72b",
+      "FileName": "FileName-19853842",
+      "SystemFileName": "SystemFileName-19853842",
+      "FileType": "FileType-19853842",
+      "FileSize": 44,
+      "FileURL": "FileURL-19853842",
+      "UploadedAt": "2008-08-15T00:00:00.000Z",
+      "UploadedBy": "UploadedBy-19853842",
+      "FolderPath": "FolderPath-19853842"
+    }
+  ]
+}
+
+
+### Folder
+# @name Folder_DELETE
+DELETE {{server}}/odata/v4/dms/Folder/30771798-c9f4-4d08-bc4d-45c9f33dd522
+Content-Type: application/json
+Authorization: Basic {{username}} {{password}}
+
+
+### File
+# @name File_GET
+GET {{server}}/odata/v4/dms/File
+Authorization: Basic {{username}} {{password}}
+
+
+### File
+# @name File_GET
+PUT {{server}}/odata/v4/dms/File/eb1a8f6a-6856-4026-b94a-dabd703f2975/FileContent/$value
+Content-Type: application/pdf
+Authorization: Basic {{username}} {{password}}
+
+< ./inv.pdf
+
+
+### File_PUT: Upload image content to FileContent
+POST {{server}}/odata/v4/dms/getFileContent
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+
+
+### File
+# @name File_POST
+POST {{server}}/odata/v4/dms/File
+Content-Type: application/json
+Authorization: Basic {{username}} {{password}}
+
+{
+  "FileName": "MyResume",
+  "SystemFileName": "MyResume_timestamp",
+  "FileType": "application/pdf",
+  "FileSize": 2001,
+  "FileURL": "/root/LocalDisk D/Resume/MyResume.pdf",
+  "FolderPath": "/root/LocalDisk D/Resume"
+}
+
+
+### File
+# @name File_PATCH
+PATCH {{server}}/odata/v4/dms/File/eb1a8f6a-6856-4026-b94a-dabd703f2975
+Content-Type: application/json
+Authorization: Basic {{username}} {{password}}
+
+{
+  "Folder_FolderUUID":"b6d0136f-29de-47cf-be4f-ce804b7bed8e"
+}
+
+
+### File
+# @name File_DELETE
+DELETE {{server}}/odata/v4/dms/File/19853841-988c-4004-9a0e-40e5eff3b343
+Content-Type: application/json
+Authorization: Basic {{username}} {{password}}

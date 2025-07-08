@@ -1,0 +1,1 @@
+UNIQUE INVERTED INDEX DMS_DocumentManagementSystem_Folder_NameConstraint ON DMS_DocumentManagementSystem_Folder (ParentFolder_FolderUUID, Name)

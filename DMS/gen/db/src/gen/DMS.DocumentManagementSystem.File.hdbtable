@@ -1,0 +1,13 @@
+COLUMN TABLE DMS_DocumentManagementSystem_File (
+  FileUUID NVARCHAR(36) NOT NULL,
+  FileName NVARCHAR(5000),
+  SystemFileName NVARCHAR(5000),
+  FileType NVARCHAR(5000),
+  FileSize INTEGER,
+  FileContent BLOB,
+  FileURL NVARCHAR(5000),
+  UploadedAt TIMESTAMP,
+  UploadedBy NVARCHAR(5000),
+  Folder_FolderUUID NVARCHAR(36),
+  PRIMARY KEY(FileUUID)
+)

@@ -1,0 +1,9 @@
+COLUMN TABLE DMS_DocumentManagementSystem_Folder (
+  FolderUUID NVARCHAR(36) NOT NULL,
+  Name NVARCHAR(5000),
+  ParentFolder_FolderUUID NVARCHAR(36),
+  Path NVARCHAR(5000),
+  CreatedAt TIMESTAMP,
+  CreatedBy NVARCHAR(5000),
+  PRIMARY KEY(FolderUUID)
+)

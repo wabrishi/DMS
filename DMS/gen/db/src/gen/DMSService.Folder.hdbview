@@ -1,0 +1,8 @@
+VIEW DMSService_Folder AS SELECT
+  Folder_0.FolderUUID,
+  Folder_0.Name,
+  Folder_0.ParentFolder_FolderUUID,
+  Folder_0.Path,
+  Folder_0.CreatedAt,
+  Folder_0.CreatedBy
+FROM DMS_DocumentManagementSystem_Folder AS Folder_0

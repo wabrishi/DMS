@@ -1,0 +1,13 @@
+VIEW DMSService_File AS SELECT
+  File_0.FileUUID,
+  File_0.FileName,
+  File_0.SystemFileName,
+  File_0.FileType,
+  File_0.FileSize,
+  File_0.FileContent,
+  File_0.FileURL,
+  File_0.UploadedAt,
+  File_0.UploadedBy,
+  File_0.Folder_FolderUUID,
+  Folder_1.Path AS FolderPath
+FROM (DMS_DocumentManagementSystem_File AS File_0 LEFT JOIN DMS_DocumentManagementSystem_Folder AS Folder_1 ON File_0.Folder_FolderUUID = Folder_1.FolderUUID)

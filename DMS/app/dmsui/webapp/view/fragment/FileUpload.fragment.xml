@@ -1,0 +1,33 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:u="sap.ui.unified"
+    xmlns:core="sap.ui.core">
+    <Dialog
+        id="uploadDialog"
+        title="Upload File"
+        stretch="true"
+        contentWidth="400px"
+        contentHeight="200px"
+        draggable="true"
+        resizable="true">
+        
+        <VBox class="sapUiSmallMargin">
+            <Input id="fileNameInput" placeholder="Enter file name" />
+            <u:FileUploader
+                id="fileUploader"
+                name="uploadFile"
+                width="100%"
+                placeholder="Choose a file"
+                change=".onFileSelected"
+                fileType="jpg,png,pdf,docx"
+                />
+        </VBox>
+        
+        <beginButton>
+            <Button text="Upload" type="Emphasized" press=".onUploadConfirm" />
+        </beginButton>
+        <endButton>
+            <Button text="Cancel" type="Reject" press=".onCloseUpload" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,22 @@
+<mvc:View
+  controllerName="dmsui.controller.Main"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  displayBlock="true">
+
+  <VBox class="sapUiSmallMargin">
+    <Text text="📁 Folder Navigation" class="sapUiTinyMarginBottom sapUiTinyMarginTop" />
+
+    <!-- Breadcrumb -->
+    <Breadcrumbs id="breadcrumb" class="sapUiSmallMarginBottom" />
+
+    <!-- Folder List -->
+    <List id="folderList"
+      items="{foldersModel>/currentChildren}"
+      mode="None"
+      noDataText="No subfolders found"
+      itemPress="onFolderPress">
+      <StandardListItem title="{foldersModel>Name}" type="Active" />
+    </List>
+  </VBox>
+</mvc:View>

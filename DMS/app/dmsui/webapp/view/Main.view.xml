@@ -1,0 +1,54 @@
+<mvc:View
+  controllerName="dmsui.controller.Main"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:core="sap.ui.core"
+  xmlns="sap.m"
+  displayBlock="true">
+  <Page >
+  <Toolbar >
+    <Button text="New Folder" press=".onCreateFolder" />
+    <Button text="Upload File" press=".onOpenUploadDialog" />
+  </Toolbar>
+  <VBox class="sapUiSmallMargin">
+    <Breadcrumbs id="breadcrumb" />
+    <!-- <Button text="New Folder" press=".onCreateFolder" /> -->
+    <List
+      id="folderList"
+      headerText="MY DMS"
+      showNoData="false"
+
+      items="{foldersModel>/currentSubFolders}"
+      itemPress="onItemClick">
+      <StandardListItem
+        title="{foldersModel>Name}"
+        icon="sap-icon://folder"
+        type="Active" />
+    </List>
+
+    <List
+      id="fileList"
+      showNoData="false"
+      items="{foldersModel>/currentFiles}">
+      <CustomListItem press="onFilePress" type="Active">
+    <HBox justifyContent="SpaceBetween" class="sapUiSmallMargin" alignItems="Center" width="80%">
+      
+      <!-- File Name + Icon -->
+      <HBox alignItems="Center">
+        <core:Icon src="sap-icon://document" class="sapUiSmallMarginEnd"/>
+        <Text text="{foldersModel>FileName}" />
+      </HBox>
+
+      <!-- File Type -->
+      <Text text="{foldersModel>FileType}" />
+
+      <!-- File Size -->
+      <Text text="{= ${foldersModel>FileSize} + ' bytes' }" />
+
+    </HBox>
+  </CustomListItem>
+    </List>
+  </VBox>
+
+  
+  </Page>
+</mvc:View>

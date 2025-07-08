@@ -1,0 +1,54 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core">
+<Dialog
+  id="filePreviewDialog"
+  title="{filePreview>/FileName}"
+  contentWidth="100%"
+  contentHeight="100%"
+  stretch="true"
+  draggable="true"
+  resizable="true">
+	<ScrollContainer
+		height="100%"
+		width="100%"
+		horizontal="true"
+		vertical="true">
+  <!-- <VBox fitContainer="true" renderType="Div" height="100%" class="sapUiSmallMargin"> -->
+  <FlexBox direction="Column" renderType="Div" class="sapUiSmallMargin">
+    <Image
+      visible="{= ${filePreview>/FileType}.startsWith('image/') }"
+      src="{filePreview>/AccessPath}"
+      width="100%"
+      height="100%">
+      <layoutData>
+        <FlexItemData growFactor="1" />
+      </layoutData>
+    </Image>
+
+    <PDFViewer
+      source="{filePreview>/AccessPath}"
+      isTrustedSource="true"
+      visible="{= ${filePreview>/FileType} === 'application/pdf' }"
+      width="100%"
+      height="100%">
+      <layoutData>
+        <FlexItemData growFactor="1" />
+      </layoutData>
+    </PDFViewer>
+
+    <Text
+      visible="{= !(${filePreview>/FileType}.startsWith('image/') || ${filePreview>/FileType} === 'application/pdf') }"
+      text="Preview not supported for this file type.">
+      <layoutData>
+        <FlexItemData growFactor="1" />
+      </layoutData>
+    </Text>
+  </FlexBox>
+</ScrollContainer>
+  <endButton>
+    <Button text="Close" press=".onClosePreview" />
+  </endButton>
+</Dialog>
+
+</core:FragmentDefinition>
